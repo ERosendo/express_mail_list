@@ -4,7 +4,6 @@ module.exports.create = async (req, res, next) => {
     const { email } = req.body;
     try {
         const exiting_mail = await sequelize.models.Mail.findOne({ where: { email }});
-        console.log(exiting_mail)
         if (!exiting_mail){
             const mail = await sequelize.models.Mail.create({ email: email })
         }
